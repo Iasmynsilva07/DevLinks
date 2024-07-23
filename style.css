@@ -1,0 +1,205 @@
+*{
+  margin: 0;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+:root{
+  --text-color: white;
+  --bg-url: url(./assets/bg-desktop.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.10);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --swich-bg-url : url(./assets/moon.svg);
+  --border-color: rgba(190, 187, 187, 0.904); 
+}
+
+.light{
+  --text-color: black;
+  --bg-url: url(./assets/bg-desktop-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.50);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.10);
+  --swich-bg-url : url(./assets/sun.svg);
+  --border-color: rgba(17, 17, 17, 0.692); 
+}
+
+body{
+   background: var(--bg-url) no-repeat top center/cover; 
+   height: 100vh;
+}
+
+
+body * {
+  font-family: Inter;
+  color: var(--text-color);
+}
+
+
+#container {
+  width: 100%;
+  max-width:588px ;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+
+
+#profile{
+  text-align: center;
+}
+
+
+#profile img {
+  width: 112px;
+  border: solid var(--border-color) 2px;
+  border-radius: 50%;
+}
+
+
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px; 
+  margin-top: 8px;
+  margin-bottom: 24px;
+  
+
+  font-family: Inter;
+  font-size: 16px;
+}
+
+#switch{
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button{
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: white var(--swich-bg-url) no-repeat center ;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  animation: slide-back 0.2s;
+}
+
+#switch span{
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+.light #switch button{
+  animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover{
+  outline: 8px solid var(--highlight-color)
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+
+ul li a {
+  display: flex;
+  border: 1px solid red;
+  align-items: center;
+
+  padding: 16px 24px;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 8px;
+
+  border: 1px solid  var(--stroke-color);
+  background: var(--surface-color);
+
+  backdrop-filter: blur(4px);
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+
+ul li a:hover {
+  border: 1.5px solid var(--text-color);
+  background: var(--surface-color-hover);
+}
+
+
+#social_links{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#social_links a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social_links a:hover {
+  background: var(--highlight-color);
+}
+
+footer{
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+@media (min-width: 700px){
+  :root{
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .light{
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+@keyframes slide-in{
+  from{
+    left: 0;
+  }
+
+  to{
+    left: 50%;
+  }
+
+}
+
+@keyframes slide-back{
+
+  from{
+    left: 50%;
+    tp{
+      left: 0;
+    }
+  }
+
+}
